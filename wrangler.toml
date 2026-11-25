@@ -1,0 +1,12 @@
+name = "wardrobe-match-edge"
+main = "src/worker.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+DEFAULT_STORE_DOMAIN = "demo-atelier.myshopify.com"
+ELASTICSEARCH_INDEX = "shopify_products_v1"
+
+# Bind secrets via `wrangler secret put`:
+# - ELASTICSEARCH_URL
+# - ELASTICSEARCH_API_KEY
+# - SHOPIFY_APP_SECRET

@@ -1,0 +1,18 @@
+{
+  "name": "wardrobe-match-edge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Edge outfit-compatibility graph & hybrid Elasticsearch/Shopify product matching engine for Cloudflare Workers and Vercel Edge.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
