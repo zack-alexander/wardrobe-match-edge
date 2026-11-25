@@ -43,6 +43,8 @@ export interface GapReport {
 
 export interface UnlockedOutfitSample {
   readonly items: readonly string[];
+  /** Stable garment ids parallel to `items`, used for identity (names can collide). */
+  readonly itemIds: readonly string[];
   readonly harmonyScore: number;
   readonly formality: number;
 }

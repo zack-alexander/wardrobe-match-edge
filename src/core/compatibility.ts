@@ -50,6 +50,7 @@ export function evaluateOutfit(items: readonly GarmentAttributes[]): UnlockedOut
 
   return {
     items: items.map((i) => i.name),
+    itemIds: items.map((i) => i.id),
     harmonyScore: Number(avgHarmony.toFixed(3)),
     formality: Number(avgFormality.toFixed(1)),
   };
@@ -187,7 +188,9 @@ export function evaluateMarginalUtility(
 ): MarginalUtilityEvaluation {
   const withCandidate = enumerateOutfits([...wardrobe, candidate], seasonFilter);
   const candidateOutfits = withCandidate
-    .filter((outfit) => outfit.items.includes(candidate.name))
+    // Match by id, not display name: a catalog SKU sharing a name with an
+    // owned garment must never inherit the wearer's pre-existing outfits.
+    .filter((outfit) => outfit.itemIds.includes(candidate.id))
     .sort((a, b) => b.harmonyScore - a.harmonyScore);
 
   const averageHarmony =
